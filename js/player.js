@@ -5333,7 +5333,7 @@ const m = {
                     player.torque -= torque
                 }
                 m.angle += m.spin
-                m.angle = player.angle
+                player.angle = m.angle
             }
 
 
@@ -5372,15 +5372,6 @@ const m = {
                     energy: m.energy,
                     activeGun: b.activeGun
                 });
-            }
-
-            m.look = () => { //disable mouse aiming
-                const scale = 0.8;
-                m.transSmoothX = canvas.width2 - m.pos.x - (simulation.mouse.x - canvas.width2) * scale;
-                m.transSmoothY = canvas.height2 - m.pos.y - (simulation.mouse.y - canvas.height2) * scale;
-
-                m.transX += (m.transSmoothX - m.transX) * 0.07;
-                m.transY += (m.transSmoothY - m.transY) * 0.07;
             }
 
             simulation.camera = () => {
